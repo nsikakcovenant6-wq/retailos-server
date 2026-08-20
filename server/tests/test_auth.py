@@ -139,7 +139,7 @@ def test_double_logout(client,login_user):
     assert response.status_code == 200
     assert response2.status_code == 401
     
-# stale session
+# slate session
 def test_slate_session(client, login_user):
     if not login_user:
         pytest.skip("User login failed, skipping logout test.")

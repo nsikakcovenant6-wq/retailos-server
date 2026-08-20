@@ -10,6 +10,17 @@ class AuthService:
     
     def register_user(self):
         data = request.get_json()
+
+        if data is None:
+            code = "VALIDATION_ERROR"
+            message = "Invalid input data"
+            fields = {
+                "name": "Username must be a string",
+                "email": "Email must be a string",
+                "password": "Password must be a string"
+            }
+            return Response.error_response(code, message, fields), 400
+        
         username = data.get('username')
         email = data.get('email')
         password = data.get('password')
@@ -77,6 +88,16 @@ class AuthService:
 
     def login_user(self):
         data = request.get_json()
+
+        if data is None:
+            code = "VALIDATION_ERROR"
+            message = "Invalid input data"
+            fields = {
+                "email": "Email must be a string",
+                "password": "Password must be a string"
+            }
+            return Response.error_response(code, message, fields), 400
+
         email = data.get('email')
         password = data.get('password')
 
