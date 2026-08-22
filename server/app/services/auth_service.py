@@ -85,7 +85,6 @@ class AuthService:
 
             return Response.error_response(code, message, fields), 400
 
-
     def login_user(self):
         data = request.get_json()
 
@@ -151,7 +150,6 @@ class AuthService:
                 "password": "Password must be at least 6 characters long and alphanumeric"
             }
             return Response.error_response(code, message, fields), 400
-
 
     def logout_user(self):
         user_id = session.get('user_id')
